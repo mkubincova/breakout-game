@@ -26,7 +26,7 @@ screen.title("Breakout")
 screen.tracer(0)
 
 scoreboard = ScoreBoard(screen_w=800, screen_h=600, lives=3)
-paddle = Paddle(position=(0, -270), min_x=-350, max_x=350)
+paddle = Paddle(position=(0, -265), min_x=-350, max_x=350)
 ball = Ball(position=(0, -240))
 bricks = []
 create_bricks()
@@ -55,7 +55,7 @@ while is_playing:
             ball.bounce_y()
 
         # Detect collision with paddle
-        if ball.ycor() == -250 and ball.distance(paddle) <= 63:
+        if ball.ycor() == -250 and ball.distance(paddle) <= 67:
             ball.bounce_y()
             ball.move_speed *= 0.9
 
@@ -81,5 +81,6 @@ while is_playing:
             if scoreboard.lives == 0:
                 is_playing = False
                 scoreboard.game_over()
+
 
 screen.exitonclick()
